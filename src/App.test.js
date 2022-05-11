@@ -49,3 +49,22 @@ test('add todo', () => {
   const tableCell = screen.getByText(/get coffee/i)
   expect(tableCell).toBeInTheDocument();
 })
+
+test('clear todo', () => {
+  render(<App />)
+
+  const desc = screen.getByPlaceholderText('Description');
+  fireEvent.change(desc, { target: { value: 'test2' } })
+
+  const date = screen.getByPlaceholderText('Date');
+  fireEvent.change(date, { target: { value: '11.05.2022' } })
+
+  const addButton = screen.getByText('Add')
+  fireEvent.click(addButton);
+
+  const clearButton = screen.getByText('Clear all');
+  fireEvent.click(clearButton);
+
+  const tableCell = screen.queryByText(/test2/i)
+  expect(tableCell).not.toBeInTheDocument();
+})

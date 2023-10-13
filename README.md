@@ -1,3 +1,5 @@
+# Haaga Helia Polytechnic University project for Frontend Development class
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
